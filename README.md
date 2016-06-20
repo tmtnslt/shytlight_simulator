@@ -22,3 +22,6 @@ Have fun!
 * Python 3
 * pyqt5
 * numpy
+
+## Goodies:
+Check "test-downsampling.py" on how to use downsampling to create smooth transitions. Requires cv2
