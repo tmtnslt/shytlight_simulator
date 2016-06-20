@@ -1,0 +1,3 @@
+[submodule "shitlight_simulator"]
+	path = shitlight_simulator
+	url = https://github.com/noah-jones/shitlight_simulator.git
