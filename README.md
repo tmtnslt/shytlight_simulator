@@ -14,4 +14,4 @@ use:
     
 Have fun!
 
-\* ask for a tutorial if needed...
+\* See the tutorial in "test-shytlight.py". If you want to run this file, you need to place it somewhere, where it can import shytlight_simulator of course.
