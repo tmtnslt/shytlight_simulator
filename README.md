@@ -16,8 +16,9 @@ use:
     
 Have fun!
 
-\* See the tutorial in "test-shytlight.py". If you want to run this file, you need to place it somewhere, where it can import shytlight_simulator of course.
+\* See the tutorial in "test-shytlight.py". If you want to run this file, you need to place it somewhere, where it can import shytlight_simulator of course. If you want to use numpy arrays instead of the internal t_chitframes, see "test-numpy.py"
 
 ## Requirements:
 * Python 3
 * pyqt5
+* numpy
