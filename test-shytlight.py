@@ -32,6 +32,8 @@ for j in range(5):
 # if there are no new frames to be drawn, the last frame will be repeated
 # note that add_frame will return instantly, as long as there is free memory in the buffer
 shytlight.add_frame(200, test_green) 
+# if you want, you can re-use frame instances after adding them to the buffer. 
+# shytlight will always add a real copy of your frame to the buffer!
 shytlight.add_frame(200, test_red) 
 shytlight.add_frame(200, test_blue) 
 shytlight.add_frame(200, test_green) 
