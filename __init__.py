@@ -35,7 +35,6 @@ def add_frame(rep, frame):
     for br in frame.brightness:
         for led in br:
             color.append((led[0],led[1],led[2]))
-    print(len(color))
     q.put((rep, color))
 
 def get_fps():
