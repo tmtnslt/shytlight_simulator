@@ -1,12 +1,22 @@
-from .shitlight_simulator.Main import Light
+
+from __future__ import print_function
+
+
+from shitlight_simulator.Main import Light
+
 import ctypes
 import threading
-import queue
+try:
+    import queue
+except ImportError:
+    import Queue as queue
+
 import time
 import numpy as np
 
 q = queue.Queue()
 light = Light(5,8)
+# time.sleep(1)
 
 class simulator_thread(threading.Thread):
     def __init__(self):
@@ -29,6 +39,15 @@ st = simulator_thread()
 
 def init_shitlight():
     st.start()
+
+def clear_buffer():
+
+    stopping = False
+    while not stopping:
+        try:
+            q.get(False)
+        except queue.Empty:
+            return
 
 def add_frame(rep, frame):
     if type(frame) is t_chitframe:
@@ -54,6 +73,9 @@ def add_frame(rep, frame):
 
     else:
         raise NotImplementedError
+
+    while q.qsize() > 1024:
+        time.sleep(0.01)
 
 def get_fps():
     return 100
