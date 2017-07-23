@@ -27,17 +27,18 @@ class simulator_thread(threading.Thread):
     def run(self):
         internal_beats = 0
         item = q.get(True)
-        while True:            
+        while True:
+            reps = item[0] # need to copy, tuple is not mutable
             if self.sync_beats > 0:
-                item[0]*=get_bpm()
+                reps*=get_bpm()
                 if self.sync_beats > 10:
                     if item[2]: internal_beats+=1
                     if internal_beats > _chit.get_beat_count(): internal_beats = sync_beats # counter reset externally
                     if (internal_beats + 2) < _chit.get_beat_count():
-                        item[0]/=1.3
-                        if item[0] <= 1: continue     
+                        reps/=1.3
+                        if reps <= 1: continue     
             light.set_color(item[1])
-            time.sleep(0.01 * item[0])
+            time.sleep(0.01 * reps)
             item = q.get(True)
             if self.sync_beats > 10:
                 if item[2]:
